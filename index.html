@@ -20,7 +20,9 @@ function changeState(e)
 		}
 	}
 
-	window.history.pushState("cat", e.value, origin + "/#" + URIText);
+	link = origin + "/#" + URIText;
+	document.getElementById("textlink").href=link;
+	window.history.pushState("cat", e.value, link);
 
 	return false;
 }
@@ -68,6 +70,8 @@ function readURI()
 	<body onload="readURI();">
 
 		<div id="text">test</div>
+		</br>
+		<a id="textlink" href="">link me</a>
 
 		<form name="newTextForm" onsubmit="return changeState(this.newText);" >
 			<input type="text" name="newText" />
