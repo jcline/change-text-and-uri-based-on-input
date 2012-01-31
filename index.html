@@ -22,6 +22,7 @@ function changeState(e)
 
 	link = origin + "/#" + URIText;
 	document.getElementById("textlink").href=link;
+	document.getElementById("textlink").style.display="Block";
 	window.history.pushState("cat", e.value, link);
 
 	return false;
@@ -29,6 +30,7 @@ function changeState(e)
 
 function readURI()
 {
+	document.getElementById("textlink").style.display="none";
 	if(location.href.indexOf("#") != -1)
 	{
 		displayText = location.href.substr(location.href.indexOf("#")+1);
