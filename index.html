@@ -1,17 +1,25 @@
 <html>
 	<head>
 		<script type="text/javascript">
-			function changeState(e)
+function changeState(e)
 {
 
 	document.getElementById("text").innerHTML = e.value;
-	window.history.pushState("cat", e.value, "/#" + e.value);
+	window.history.pushState("this field is annoying", e.value, "/#" + e.value);
 
 	return false;
 }
+
+function readURI()
+{
+	document.getElementById("text").innerHTML = 
+		location.href.substr(location.href.indexOf("#")+1);
+}
+
 		</script>
 	</head>
-	<body>
+
+	<body onload="readURI();">
 
 		<div id="text">test</div>
 
