@@ -12,6 +12,7 @@ function changeState(e)
 
 function readURI()
 {
+	if(location.href.indexOf("#") != -1)
 	document.getElementById("text").innerHTML = 
 		location.href.substr(location.href.indexOf("#")+1);
 }
