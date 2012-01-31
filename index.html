@@ -1,12 +1,14 @@
 <html>
 	<head>
 		<script type="text/javascript">
+origin = "";
 
 function changeState(e)
 {
 
 	document.getElementById("text").innerHTML = e.value;
-	window.history.pushState("this field is annoying", e.value, "/#" + e.value);
+
+	window.history.pushState("cat", e.value, origin + "/#" + e.value);
 
 	return false;
 }
@@ -14,8 +16,26 @@ function changeState(e)
 function readURI()
 {
 	if(location.href.indexOf("#") != -1)
-		document.getElementById("text").innerHTML = 
-			location.href.substr(location.href.indexOf("#")+1);
+	{
+		displayText = location.href.substr(location.href.indexOf("#")+1);
+
+		while(displayText.search("%20") != -1)
+		{
+			displayText.replace("%20", " ");
+		}
+
+		document.getElementById("text").innerHTML = displayText;
+
+		origin = location.href.substr(0,location.href.indexOf("#"));
+		if(origin.charAt(origin.length-1) == "/")
+			origin = origin.substr(0,origin.length-1);
+	}
+	else
+	{
+		origin = location.href;
+		if(origin.charAt(origin.length-1) == "/")
+			origin = origin.substr(0,origin.length-1);
+	}
 }
 
 		</script>
