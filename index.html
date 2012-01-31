@@ -30,7 +30,6 @@ function changeState(e)
 
 function readURI()
 {
-	document.getElementById("textlink").style.display="none";
 	if(location.href.indexOf("#") != -1)
 	{
 		displayText = location.href.substr(location.href.indexOf("#")+1);
@@ -60,6 +59,7 @@ function readURI()
 	}
 	else
 	{
+		document.getElementById("textlink").style.display="none";
 		origin = location.href;
 		if(origin.charAt(origin.length-1) == "/")
 			origin = origin.substr(0,origin.length-1);
