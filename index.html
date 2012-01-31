@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function changeState(e)
+{
+
+	document.getElementById("text").innerHTML = e.value;
+	window.history.pushState("cat", e.value, "/#" + e.value);
+
+	return false;
+}
+		</script>
+	</head>
+	<body>
+
+		<div id="text">test</div>
+
+		<form name="newTextForm" onsubmit="return changeState(this.newText);" >
+			<input type="text" name="newText" />
+		</form>
+
+	</body>
+</head>
