@@ -13,8 +13,8 @@ function changeState(e)
 function readURI()
 {
 	if(location.href.indexOf("#") != -1)
-	document.getElementById("text").innerHTML = 
-		location.href.substr(location.href.indexOf("#")+1);
+		document.getElementById("text").innerHTML = 
+			location.href.substr(location.href.indexOf("#")+1);
 }
 
 		</script>
@@ -26,6 +26,7 @@ function readURI()
 
 		<form name="newTextForm" onsubmit="return changeState(this.newText);" >
 			<input type="text" name="newText" />
+			<input type="submit" value="Submit" />
 		</form>
 
 	</body>
