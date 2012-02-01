@@ -9,16 +9,8 @@ function changeState(e)
 	document.getElementById("text").innerHTML = e.value;
 
 	URIText = e.value;
-	length = URIText.length-1;
 
-	for(i = 0; i < length; i = i +1)
-	{
-		if(URIText.charAt(i) == " ")
-		{
-			URIText = URIText.substr(0,i) + "%20" + URIText.substr(i+1);
-			length = length + 2;
-		}
-	}
+	URIText = escape(URIText);
 
 	link = origin + "/#" + URIText;
 	document.getElementById("textlink").href=link;
@@ -34,22 +26,7 @@ function readURI()
 	{
 		displayText = location.href.substr(location.href.indexOf("#")+1);
 
-		length = displayText.length-1;
-
-		for(i = 0; i < length; i = i +1)
-		{
-			if(displayText.charAt(i) == "%")
-			{
-				if(displayText.charAt(i+1) == "2")
-				{
-					if(displayText.charAt(i+2) == "0")
-					{
-						displayText = displayText.substr(0,i) + " " + displayText.substr(i+3);
-						length = length - 2;
-					}
-				}
-			}
-		}
+		displayText = unescape(displayText);
 
 		document.getElementById("text").innerHTML = displayText;
 
